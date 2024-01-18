@@ -39,4 +39,4 @@ const bonusSchema = new Schema({
 
 }, {timestamps: true})
 
-module.exports = mongoose.Model("Bonus", bonusSchema)
+module.exports = mongoose.model("Bonus", bonusSchema)
