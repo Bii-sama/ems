@@ -37,4 +37,4 @@ const penaltySchema = Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.Model('Penalty', penaltySchema)
+module.exports = mongoose.model('Penalty', penaltySchema)

@@ -28,4 +28,4 @@ const loanNoteSchema = Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.Model('Loan-Note', loanNoteSchema)
+module.exports = mongoose.model('Loan-Note', loanNoteSchema)

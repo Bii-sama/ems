@@ -43,4 +43,4 @@ const loanSchema = Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.Model('Loan', loanSchema)
+module.exports = mongoose.model('Loan', loanSchema)

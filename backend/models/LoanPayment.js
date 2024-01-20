@@ -31,4 +31,4 @@ const loanPaymentSchema = Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.Model('Loan-Payment', loanPaymentSchema)
+module.exports = mongoose.model('Loan-Payment', loanPaymentSchema)

@@ -19,4 +19,4 @@ const apiSchema = new Schema({
   
 })
 
-module.exports = mongoose.Model('Api', apiSchema)
+module.exports = mongoose.model('Api', apiSchema)
