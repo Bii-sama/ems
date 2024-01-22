@@ -1,9 +1,8 @@
 require('dotenv').config();
 
 const express = require('express');
+const db = require('./dbconfig/db')
 
-
-const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const app = express()
@@ -29,11 +28,8 @@ app.use((req, res, next)=>{
 
 //connect database
 
-mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-  app.listen(port, ()=>{
-    console.log("DB Connected and we are up!!!")
-  })
-}).catch((error)=>{
-  console.log(error)
-})
+db()
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
