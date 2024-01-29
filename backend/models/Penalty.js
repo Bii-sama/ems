@@ -10,6 +10,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const penaltySchema = Schema({
+
   amount : {
     type: Number,
     required: true
@@ -37,4 +38,4 @@ const penaltySchema = Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.model('Penalty', penaltySchema)
+module.exports = mongoose.model("Penalty", penaltySchema)

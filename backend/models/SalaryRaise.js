@@ -31,4 +31,4 @@ const salaryRaiseSchema = Schema({
 }, {timestamps: true})
 
 
-module.exports = mongoose.model('Salary-Raise', salaryRaiseSchema)
+module.exports = mongoose.model("Salary-Raise", salaryRaiseSchema)
