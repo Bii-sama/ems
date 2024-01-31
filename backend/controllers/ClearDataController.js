@@ -83,7 +83,100 @@ const removeLoan = async ( req, res ) =>{
       const { params } = req.params
 
       const loanEntries = await Loan.find()
+
+      try {
+        const loanIds = getIds(loanEntries, params, false)
+
+        const result = loanEntries.deleteMany({ _id: {$in : loanIds} })
+        if (result.length > 0) {
+          res.status(200).json({ success: true, message: 'Loan entries deleted successfully' });
+        } else {
+          res.status(404).json({ success: false, message: 'No matching loan entries found' });
+        }
+        
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, error: 'Internal Server Error' });
+      }
 }
 
 
-module.exports = {removeSalaryRaise, removePenalty, removeBonus}
+const removeLoanNotes = async ( req, res ) =>{
+
+  const { params } = req.params
+
+  const loanNoteEntries = await LoanNote.find()
+
+  try {
+
+    const loanNoteIDs = getIds(loanNoteEntries, params, false)
+
+    const result = loanNoteEntries.deleteMany({_id : {$in : loanNoteIDs}})
+
+    if (result.length > 0) {
+      res.status(200).json({ success: true, message: 'Loan-Note entries deleted successfully' });
+    } else {
+      res.status(404).json({ success: false, message: 'No matching loan-note entries found' });
+    }
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+
+}
+
+
+const removeLoanPayment = async ( req, res ) =>{
+
+  const { params } = req.params
+
+  const loanPaymentEntries = await LoanPayment.find()
+
+  try {
+
+    const loanPaymentIDs = getIds(loanPaymentEntries, params, false)
+
+    const result = loanPaymentEntries.deleteMany({_id : {$in : loanPaymentIDs}})
+
+    if (result.length > 0) {
+      res.status(200).json({ success: true, message: 'Loan-Note entries deleted successfully' });
+    } else {
+      res.status(404).json({ success: false, message: 'No matching loan-note entries found' });
+    }
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+
+}
+
+const removeApi = async ( req, res ) =>{
+
+  const { params } = req.params
+
+  const ApiEntries = await Api.find()
+
+  try {
+
+    const ApiIDs = getIds(ApiEntries, params, false)
+
+    const result = ApiEntries.deleteMany({_id : {$in : ApiIDs}})
+
+    if (result.length > 0) {
+      res.status(200).json({ success: true, message: 'Loan-Note entries deleted successfully' });
+    } else {
+      res.status(404).json({ success: false, message: 'No matching loan-note entries found' });
+    }
+    
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, error: 'Internal Server Error' });
+  }
+
+}
+
+
+
+module.exports = {removeSalaryRaise, removePenalty, removeBonus, removeLoan, removeLoanNotes, removeLoanPayment, removeApi}
