@@ -24,6 +24,12 @@ const loanNoteSchema = Schema({
   employeeJMBG : {
     type : String,
     required: true
+  },
+
+  employee : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref: 'Employee',
+    required: true
   }
 }, {timestamps: true})
 

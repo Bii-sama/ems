@@ -34,6 +34,12 @@ const bonusSchema = new Schema({
   employeeJMBG  : {
     type: Boolean,
     required: true
+  },
+
+  employee : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref: 'Employee',
+    required: true
   }
 
 
